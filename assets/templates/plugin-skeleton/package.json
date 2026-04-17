@@ -1,0 +1,31 @@
+{
+  "name": "@yourname/openclaw-plugin-example",
+  "version": "0.1.0",
+  "description": "Example OpenClaw plugin — replace this with your plugin description",
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "openclaw": ">=0.20.0"
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "^0.32.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.ts",
+    "openclaw.plugin.json",
+    "README.md"
+  ]
+}
