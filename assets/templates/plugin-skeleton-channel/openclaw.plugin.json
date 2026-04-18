@@ -1,0 +1,13 @@
+{
+  "id": "example-channel",
+  "name": "Example Channel",
+  "version": "0.1.0",
+  "description": "Example channel plugin — replace with your own platform adapter",
+  "author": "Your Name <you@example.com>",
+  "homepage": "https://github.com/yourname/openclaw-channel-example",
+  "license": "MIT",
+  "capability": "channel",
+  "openclaw": {
+    "minVersion": "0.20.0"
+  }
+}

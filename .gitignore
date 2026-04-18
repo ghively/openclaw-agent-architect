@@ -1,0 +1,21 @@
+# Build artifacts that can be regenerated
+openclaw-agent-architect.skill
+
+# Eval / test-run artifacts
+eval-viewer.html
+evals/
+openclaw-agent-architect-workspace/
+iteration-*/
+
+# Scratch / workspace permission-quirk files (empty sentinels, cannot be rm'd)
+test-write
+ziXEHwfa
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

@@ -1,0 +1,13 @@
+{
+  "id": "example-context-engine",
+  "name": "Example Context Engine",
+  "version": "0.1.0",
+  "description": "Example context engine plugin — replace with your own retrieval/compaction strategy",
+  "author": "Your Name <you@example.com>",
+  "homepage": "https://github.com/yourname/openclaw-context-engine-example",
+  "license": "MIT",
+  "capability": "context-engine",
+  "openclaw": {
+    "minVersion": "0.20.0"
+  }
+}

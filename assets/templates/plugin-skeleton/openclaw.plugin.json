@@ -1,0 +1,12 @@
+{
+  "id": "example-plugin",
+  "name": "Example Plugin",
+  "version": "0.1.0",
+  "description": "Example OpenClaw plugin — replace with your own",
+  "author": "Your Name <you@example.com>",
+  "homepage": "https://github.com/yourname/openclaw-plugin-example",
+  "license": "MIT",
+  "openclaw": {
+    "minVersion": "0.20.0"
+  }
+}
