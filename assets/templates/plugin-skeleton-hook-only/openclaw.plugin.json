@@ -1,0 +1,12 @@
+{
+  "id": "example-hook-only",
+  "name": "Example Hook-Only Plugin",
+  "version": "0.1.0",
+  "description": "Example hook-only plugin — replace with your policy/audit logic",
+  "author": "Your Name <you@example.com>",
+  "homepage": "https://github.com/yourname/openclaw-hook-only-example",
+  "license": "MIT",
+  "openclaw": {
+    "minVersion": "0.20.0"
+  }
+}

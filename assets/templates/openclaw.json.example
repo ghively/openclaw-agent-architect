@@ -1,0 +1,73 @@
+{
+  "_comment_overview": "Example openclaw.json covering the three build tracks. Delete the tracks you aren't using. This is an EXAMPLE, not a schema — verify current field names against docs.openclaw.ai before deploying. Do NOT paste this into production without reviewing every field.",
+
+  "_comment_common": "Fields marked _comment_* are annotations; remove them from the real config.",
+
+  "gateway": {
+    "_comment": "Bind to loopback unless you've thought hard about why not.",
+    "host": "127.0.0.1",
+    "port": 3100
+  },
+
+  "agents": {
+    "_comment_track_a": "Track A — chat-only / read-only. No exec. Safe defaults for multi-user / untrusted-inbound.",
+    "inbox-assistant": {
+      "_comment": "Track A example — read-only inbox helper.",
+      "model": { "provider": "anthropic", "name": "claude-sonnet-4-6" },
+      "tools": {
+        "profile": "messaging",
+        "deny": ["exec", "process", "write", "edit", "apply_patch", "browser", "cron", "gateway"]
+      },
+      "sandbox": {
+        "mode": "non-main",
+        "scope": "session",
+        "workspaceAccess": "ro"
+      },
+      "heartbeat": { "every": "0m" },
+      "channels": { "telegram": { "dmPolicy": "pairing" } }
+    },
+
+    "_comment_track_b": "Track B — full operator on a trusted host. Three-layer exec-approvals is REQUIRED.",
+    "homelab-operator": {
+      "_comment": "Track B example — single trusted user, full operator, conservative hardening.",
+      "model": { "provider": "anthropic", "name": "claude-sonnet-4-6" },
+      "tools": {
+        "profile": "coding",
+        "exec": {
+          "security": "allowlist",
+          "ask": "on-miss",
+          "askFallback": "deny",
+          "strictInlineEval": true,
+          "autoAllowSkills": false,
+          "approvalsFile": "~/.openclaw/exec-approvals.json"
+        },
+        "elevated": { "enabled": false },
+        "_comment_elevated": "Keep elevated: false. Enabling is a break-glass decision."
+      },
+      "fs": { "workspaceOnly": true },
+      "sandbox": {
+        "mode": "off",
+        "_comment_sandbox": "sandbox off is acceptable when inbound is trusted-only. If the agent processes untrusted content, flip to non-main with workspaceAccess: ro/none."
+      },
+      "heartbeat": { "every": "0m" },
+      "channels": { "telegram": { "dmPolicy": "pairing" } }
+    },
+
+    "_comment_track_c_note": "Track C is a SHAPE, not a single-agent config. Each agent in a multi-agent system picks Track A or B internally. See references/multi-agent-routing.md for bindings."
+  },
+
+  "_comment_bindings": "Per-channel agent routing. Precedence: peer > parentPeer > guildId+roles > guildId > teamId > accountId > channel > default.",
+  "bindings": [
+    { "channel": "telegram", "peer": "123456789", "agent": "homelab-operator" },
+    { "channel": "telegram", "peer": "987654321", "agent": "inbox-assistant" }
+  ],
+
+  "_comment_hooks": "Enable command-logger on any gateway running community code.",
+  "hooks": {
+    "command-logger": { "enabled": true }
+  },
+
+  "_comment_dangerous_flags": "NEVER enable any of these without a written justification in DESIGN-LOG.md §6: tools.exec.security=\"full\", tools.exec.autoAllowSkills=true, tools.exec.strictInlineEval=false, tools.elevated.enabled=true without allowlist, fs.workspaceOnly=false, sandbox.mode=off on an agent that accepts untrusted inbound, channels.*.dmPolicy=\"open\".",
+
+  "_comment_verify": "After editing: `openclaw security audit --deep`. Diff against the previous snapshot. Any new critical finding blocks the change."
+}
