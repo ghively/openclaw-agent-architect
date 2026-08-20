@@ -19,3 +19,11 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# Local agent / editor tool state
+.claude/
+.env
+node_modules/
+dist/
+build/
+coverage/
