@@ -5,6 +5,51 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased] — portfolio remediation pass
+
+Documentation cleanup pass; no guidance content changed in meaning.
+
+### Fixed
+
+- Genericized two example bind-mount paths in `references/tool-policy-and-security.md`
+  and `references/tweaking-existing-agents.md` that used a real local username; both
+  now use `/Users/you/...`.
+- Reworded the "canonical Molty rewrite prompt" swearing example in
+  `references/soul-writing.md` to make the same point (strong language is allowed in
+  a persona when it lands, vs. sterile corporate praise) without literal profanity.
+- Regenerated the README `Structure` tree, which had drifted out of date (was missing
+  4 reference files, all of `assets/worksheets/`, and undercounted templates).
+- Untracked `.claude/settings.local.json` and added `.claude/` to `.gitignore`.
+
+## [0.3.0] — 2026-04-17
+
+Retroactive changelog entry for a batch of files that was committed (in
+`chore: initialize git repository with existing files`) but never documented at the
+time. No new work in this entry — it brings CHANGELOG.md in line with what shipped.
+
+### Added
+
+- Four new references: `build-tracks.md`, `plan-mode.md`, `research-discipline.md`,
+  `failure-modes.md`.
+- Three additional plugin starter skeletons alongside the original generic one:
+  `assets/templates/plugin-skeleton-channel/`,
+  `assets/templates/plugin-skeleton-context-engine/`,
+  `assets/templates/plugin-skeleton-hook-only/`.
+- `assets/worksheets/` — four new decision worksheets: `tool-posture-wizard.md`,
+  `sandbox-choice.md`, `memory-backend-choice.md`, `heartbeat-cost-calculator.md`.
+- Four additional audit checklists alongside the original `pre-install.md`:
+  `post-install-monitoring.md`, `upgrade-audit.md`, `quarterly-reaudit.md`,
+  `incident-response.md`.
+- Populated template content for `BOOT.md`, `DREAMS.md`, `MEMORY.md`,
+  `openclaw.json.example`, and `standing-order.md` (previously empty placeholders).
+
+### Repository structure (superseding the count below)
+
+- 24 references, 18 templates (14 standalone files + 4 plugin-skeleton scaffolds),
+  5 audit checklists, 4 worksheets.
+
+---
+
 ## [0.2.0] — 2026-04-17
 
 Gap-closure pass on the v0.1 baseline. All fourteen identified gaps fixed across

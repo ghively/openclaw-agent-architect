@@ -12,10 +12,11 @@ It's designed for users working on self-hosted AI assistants built on OpenClaw: 
 
 ```
 SKILL.md                     entry point — workflow, build tracks, topic router
-references/                  detailed guidance loaded on-demand
+references/                  24 topic guides, loaded on-demand
 ├── requirements-elicitation.md   the seven discovery dimensions
 ├── system-architecture.md        five system patterns, when each fits
 ├── agent-design-workflow.md      plan-mode / build-mode contract
+├── build-tracks.md               when each track (A/B/C) fits, how to graduate between them
 ├── bootstrap-files.md            SOUL / AGENTS / MEMORY / HEARTBEAT authoring
 ├── soul-writing.md               personality file conventions
 ├── agents-md-patterns.md         the six mandatory sections
@@ -31,12 +32,33 @@ references/                  detailed guidance loaded on-demand
 ├── multi-agent-routing.md        peer / hub+spoke / pipeline patterns
 ├── tweaking-existing-agents.md   six-bucket triage for live-agent issues
 ├── operating-live-agents.md      observability, diagnostics, migrations
+├── plan-mode.md                  plan-mode meta-discussion — variants, edge cases
+├── research-discipline.md        staying current: sources, scripts, failure modes
+├── failure-modes.md              catalog of post-ship failure patterns by surface
 ├── when-to-build-what.md         triage for what a user actually needs
 └── cheatsheet.md                 starting postures by track, dangerous flags
 assets/
-├── audit-checklists/             security-audit worksheets
-└── templates/
-    └── DESIGN-LOG.md             blank template + full worked Cortex example
+├── audit-checklists/           5 security-audit checklists
+│   ├── pre-install.md
+│   ├── post-install-monitoring.md
+│   ├── upgrade-audit.md
+│   ├── quarterly-reaudit.md
+│   └── incident-response.md
+├── templates/                  14 fill-in files + 4 plugin skeletons
+│   ├── SOUL.md, AGENTS.md, IDENTITY.md, USER.md, TOOLS.md,
+│   │     BOOTSTRAP-custom.md, HEARTBEAT.md      every-turn bootstrap files
+│   ├── MEMORY.md, DREAMS.md                     memory seeds (not injected every turn)
+│   ├── BOOT.md                                  gateway startup hook
+│   ├── standing-order.md                        canonical standing-order shape
+│   ├── DESIGN-LOG.md                            blank template + full worked "Cortex" example
+│   ├── skill-template.md                        starting file for authoring a skill
+│   ├── openclaw.json.example                    Track A + Track B starting config
+│   └── plugin-skeleton{,-channel,-context-engine,-hook-only}/   4 starter plugin scaffolds
+└── worksheets/                  4 decision worksheets
+    ├── tool-posture-wizard.md        four yes/no questions → recommended track
+    ├── sandbox-choice.md             two-question flowchart + dangerous combinations
+    ├── memory-backend-choice.md      quick-pick matrix + upgrade triggers
+    └── heartbeat-cost-calculator.md  formula + pre-computed cadence table
 ```
 
 ## How to use
