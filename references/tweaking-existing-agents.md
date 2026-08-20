@@ -479,7 +479,7 @@ If the agent can't reach a file outside the workspace:
       sandbox: {
         workspaceAccess: "rw",   // or "ro"
         docker: {
-          binds: ["/Users/gene/Projects:/projects:ro"]
+          binds: ["/Users/you/Projects:/projects:ro"]
         }
       }
     }

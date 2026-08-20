@@ -324,7 +324,7 @@ Blocked by design (don't try):
       sandbox: {
         docker: {
           binds: [
-            "/Users/gene/Projects/src:/source:ro",
+            "/Users/you/Projects/src:/source:ro",
             "/var/data/exports:/data:ro"
           ]
         }
